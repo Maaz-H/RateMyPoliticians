@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Star } from 'lucide-react';
 import '../../styles.css';
+import { useParams } from 'react-router-dom';
 
 const PoliticianReviewSection = ({ name }) => {
   const [rating, setRating] = useState(0);
@@ -87,12 +88,12 @@ const PoliticianReviewSection = ({ name }) => {
 };
 
 const RateMyPoliticians = () => {
+  const {param} = useParams();
   return (
     <div className="app-container">
       <h1 className="main-title">Rate My Politicians</h1>
       <div className="politicians-grid">
-        <PoliticianReviewSection name="Politician 1" />
-        <PoliticianReviewSection name="Politician 2" />
+        <PoliticianReviewSection name={param} />
       </div>
     </div>
   );
